@@ -1,3 +1,6 @@
+import React from "react";
+import Cabecera from "./components/Cabecera";
+import Listado from "./components/Listado";
 // El componente App es el padre de:
 // - Cabecera
 // - Listado
@@ -7,10 +10,16 @@
 
 function App() {
 
+const [totalElementos, setTotalElementos] = React.useState(0); 
+
+const HandleNumElements = () => {
+  setTotalElementos(totalElementos+1)
+}
+
   return (
     <div className="App">
-      <Cabecera />
-      <Listado />
+      <Cabecera cantidad= {totalElementos} />
+      <Listado onHandleNumElements={HandleNumElements}/>
     </div>
   );
 }
